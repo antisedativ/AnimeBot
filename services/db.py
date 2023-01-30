@@ -1,6 +1,6 @@
 import pymysql
 
-from config import HOST, USER, PASSWORD, DB_NAME
+from services.config import HOST, USER, PASSWORD, DB_NAME
 
 
 async def db_connect():
@@ -15,7 +15,7 @@ async def db_connect():
             cursorclass=pymysql.cursors.DictCursor
         )
         print("#" * 20)
-        print("Connecting...")
+        print("Connected to the database!")
         print('#' * 20)
 
     except Exception as ex:
@@ -25,17 +25,29 @@ async def db_connect():
         print("#" * 20)
 
 
-async def db_add_user(user_id, username, firstname, lastname, chat_id):
+async def db_add_user(chat_id, username, firstname, lastname, date):
+    with connection.cursor() as cursor:
+        select_users = f"SELECT 1 FROM users WHERE chat_id = '{chat_id}';"
+        cursor.execute(select_users)
+        user = cursor.fetchall()
 
-    print("INSERT INTO `users`(user_id, username, firstname, lastname, chat_id) " \
-          f"VALUES ('{user_id}', '{username}', '{firstname}', '{lastname}', '{chat_id}');")
+        if not user:
+            insert_query = "INSERT INTO `users`(chat_id, username, firstname, lastname, last_message_date) " \
+                           f"VALUES ('{chat_id}', '{username}', '{firstname}', '{lastname}', '{date}');"
+            cursor.execute(insert_query)
+            connection.commit()
+        else:
+            insert_query = f"UPDATE users SET last_message_date = '{date}' WHERE chat_id = {chat_id};"
+            cursor.execute(insert_query)
+            connection.commit()
 
-    # insert data
-    # with connection.cursor() as cursor:
-    #     insert_query = "INSERT INTO `users`(user_id, username, firstname, lastname, chat_id) " \
-    #                    "VALUES ('{user_id}', '{username}', '{firstname}', '{lastname}', '{chat_id}');"
-    #     cursor.execute(insert_query)
-    #     connection.commit()
+
+async def db_show_count_users():
+    with connection.cursor() as cursor:
+        select_all_rows = "SELECT count(chat_id) as count FROM users;"
+        cursor.execute(select_all_rows)
+        rows = cursor.fetchall()
+        return rows[0]['count']
 
 
 async def db_show_users():

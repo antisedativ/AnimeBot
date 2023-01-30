@@ -5,6 +5,7 @@
 
 # # #
 services/config.py
+tech_tasks.txt
 
 # not project files
 __pycache__
