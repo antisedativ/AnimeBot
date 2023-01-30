@@ -3,6 +3,9 @@
 .vscode/
 .venv/
 
+# # #
+services/config.py
+
 # not project files
 __pycache__
 .DS_Store

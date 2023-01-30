@@ -1,18 +1,14 @@
 import pymysql
 
-#127.0.0.1
-host = 'localhost'
-user = 'root'
-password = '10200226Artem'
-db_name = 'senpai_bot'
+from config import HOST, USER, PASSWORD, DB_NAME
 
 try:
     connection = pymysql.connect(
-        host=host,
+        host=HOST,
         port=3306,
-        user=user,
-        password=password,
-        database=db_name,
+        user=USER,
+        password=PASSWORD,
+        database=DB_NAME,
         cursorclass=pymysql.cursors.DictCursor
     )
     print("Connecting...")
