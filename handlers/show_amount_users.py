@@ -15,6 +15,7 @@ async def show_users_handler(mes: types.Message):
         return
 
     await bot.send_message(chat_id, 'Недостаточно прав')
+    pass
 
 
 def register_handlers_show_amount_user(dp: Dispatcher):

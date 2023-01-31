@@ -9,7 +9,7 @@ from database.db import db_connect
 
 logging.basicConfig(level=logging.INFO)
 
-TOKEN = '5348905024:AAFvyCI45ECONooqFP5U1JWFjwHnunfJB5U'
+TOKEN = '5893032007:AAHJI8qP1Jd6uL_bskWOLZfVdiLI1L1r2A8'
 
 # Пнг приветствия
 PHOTO = 'https://avatanplus.com/files/resources/original/58f1ea455683515b70fb1eea.png'
@@ -20,7 +20,7 @@ admin_chat_id = 1050726426
 
 async def on_startup(_):
     await db_connect()
-
+    # print('\nSTART\n')
 
 start.register_handlers_start(dp)
 show_amount_users.register_handlers_show_amount_user(dp)
