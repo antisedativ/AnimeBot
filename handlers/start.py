@@ -1,6 +1,6 @@
 from aiogram import types, Dispatcher
 from router import bot
-from message_text import GREETINGS
+from private.message_text import GREETINGS
 
 from database.db import db_add_user
 
