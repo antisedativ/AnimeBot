@@ -3,6 +3,8 @@
 .vscode/
 .venv/
 
+private/
+
 # # #
 database/db_config.py
 tech_tasks.txt
