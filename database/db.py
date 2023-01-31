@@ -64,4 +64,3 @@ async def db_show_users():
 
 async def db_close():
     connection.close()
-
