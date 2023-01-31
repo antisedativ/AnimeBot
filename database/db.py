@@ -1,6 +1,6 @@
 import pymysql
 
-from services.config import HOST, USER, PASSWORD, DB_NAME
+from database.db_config import HOST, USER, PASSWORD, DB_NAME
 
 
 async def db_connect():
@@ -27,8 +27,8 @@ async def db_connect():
 
 async def db_add_user(chat_id, username, firstname, lastname, date):
     with connection.cursor() as cursor:
-        select_users = f"SELECT 1 FROM users WHERE chat_id = '{chat_id}';"
-        cursor.execute(select_users)
+        select_user = f"SELECT 1 FROM users WHERE chat_id = '{chat_id}';"
+        cursor.execute(select_user)
         user = cursor.fetchall()
 
         if not user:

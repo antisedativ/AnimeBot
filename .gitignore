@@ -4,7 +4,7 @@
 .venv/
 
 # # #
-services/config.py
+database/db_config.py
 tech_tasks.txt
 
 # not project files
