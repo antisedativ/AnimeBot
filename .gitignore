@@ -3,7 +3,7 @@
 .vscode/
 .venv/
 
-.private/
+private/
 
 # # #
 database/db_config.py
