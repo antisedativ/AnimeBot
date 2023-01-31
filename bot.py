@@ -11,7 +11,7 @@ logging.basicConfig(level=logging.INFO)
 
 async def on_startup(_):
     await db_connect()
-
+    # print('\nSTART\n')
 
 start.register_handlers_start(dp)
 show_amount_users.register_handlers_show_amount_user(dp)
