@@ -1,0 +1,11 @@
+{
+  "items": [
+    {
+    "name": "top_anime",
+    "discription": "Показывает топ аниме"
+  },
+    {
+      "name": "help",
+      "discription": "Выводит это сообщение"
+    }]
+}
