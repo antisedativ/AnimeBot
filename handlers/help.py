@@ -1,13 +1,12 @@
 from aiogram import types, Dispatcher
 import json
 from router import bot
-from private.message_text import DESCRIPTION_BOT
 
 with open('handlers/comands.json', encoding="utf-8") as f:
     comands = json.load(f)['items']
 
 async def help_handler(mes: types.Message):
-    all_commands = DESCRIPTION_BOT+'\n\n'
+    all_commands = 'описание бота \n\n'
     for com in comands:
         all_commands += f'{com["name"]} - {com["discription"]}\n'
         #print(com)
